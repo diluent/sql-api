@@ -3,7 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var http = require('http');
 //var api = require('./api.js');
-var sql = require('./sql.js');
+var apiSql = require('./apiSql.js');
 
 var port = process.env.PORT || 8080;
 var router = express.Router(); 
@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 var appRouter = express.Router();
 var apiRouter = express.Router();
 
-sql(apiRouter);
+apiSql(apiRouter);
 
 appRouter.get('/test', function(req, res) {
     res.sendFile(__dirname + '/Test.html');
@@ -24,7 +24,7 @@ appRouter.get('/test', function(req, res) {
 
 app.use('/', appRouter);
 app.use('/api', apiRouter);
-app.get('*', function(req, res) {/**/
+app.get('*', function(req, res) {
     res.json({'route': 'Sorry this page does not exist!'});
 });
 app.listen(port);

@@ -79,8 +79,6 @@
                 : str;
         }
 
-        var json1 = { "test": "test" };
-
         var json = {
             "login": "user",
             "password": "secretpassword",
@@ -88,22 +86,14 @@
             "parameters":
             [
                 {
-                    "name": "@sometextparameter",
-                    "value": "somevalue",
+                    "name": "pagenumber",
+                    "value": "1",
                     "direction": "input"
                 },
                 {
-                    "name": "@somnullparameter",
+                    "name": "pagesize",
+                    "value": "3",
                     "direction": "input"
-                },
-                {
-                    "name": "@somebigintparameter",
-                    "value": "00000000000034534",
-                    "direction": "inputoutput"
-                },
-                {
-                    "name": "@someoutputparameter",
-                    "direction": "output"
                 }
             ],
             "fields":
