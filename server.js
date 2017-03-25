@@ -2,7 +2,8 @@ var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var http = require('http');
-var api = require('./api.js');
+//var api = require('./api.js');
+var sql = require('./sql.js');
 
 var port = process.env.PORT || 8080;
 var router = express.Router(); 
@@ -15,10 +16,10 @@ app.use(bodyParser.json());
 var appRouter = express.Router();
 var apiRouter = express.Router();
 
-api(apiRouter);
+sql(apiRouter);
 
-appRouter.get('/', function(req, res) {
-    res.sendFile(__dirname + '/AppBrowserBuild/index.html');
+appRouter.get('/test', function(req, res) {
+    res.sendFile(__dirname + '/Test.html');
 });
 
 app.use('/', appRouter);
