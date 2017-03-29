@@ -119,7 +119,7 @@
         var jsonCnt = document.getElementById('json');
         jsonCnt.innerText = JSON.stringify(json);
 
-        var url = "http://localhost:8080/api/API.Images";
+        var url = window.location.host + "/api/API.Images";//"http://localhost:8080/api/API.Images";
         var urlCnt = document.getElementById('url');
         urlCnt.value = url;
 
