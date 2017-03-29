@@ -1,0 +1,9 @@
+{
+    "user": "user",
+    "password": "password",
+    "server": "address",
+    "database": "dbname",
+    "options": {
+        "encrypt": true
+    }
+}

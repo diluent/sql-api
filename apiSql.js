@@ -1,17 +1,5 @@
 var sql = require('mssql');
-
-
-var config = {
-    user: 'UserAPI',
-    password: 'IDIHYmMA0oKcAYx',
-    server: 'record.database.windows.net',// 'logdev\\logdev',
-    database: 'Record10',
-    options: {
-        encrypt: true
-    }
-}
-
-const directions = { input: true, output: true, inputoutput: true };
+var config = require('./mssql.config.prod.json');
 
 module.exports = function (router) {
     router.post('/:procname', function (req, res) {
