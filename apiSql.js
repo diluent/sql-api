@@ -1,13 +1,14 @@
 var sql = require('mssql');
 
+
 var config = {
-    user: 'Lozon_test',
-    password: 'Lozon_test',
-    server: 'logdev\\logdev',
-    database: 'lozonweb',
-    // options: {
-    //     encrypt: true // Use this if you're on Windows Azure 
-    // }
+    user: 'UserAPI',
+    password: 'IDIHYmMA0oKcAYx',
+    server: 'record.database.windows.net',// 'logdev\\logdev',
+    database: 'Record10',
+    options: {
+        encrypt: true
+    }
 }
 
 const directions = { input: true, output: true, inputoutput: true };

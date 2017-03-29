@@ -4,15 +4,6 @@
     <script>
         const SERVICE_ERR_MSG = 'Ошибка сервиса. Попробуйте позже';
 
-
-        /**
-        *  XHR запрос
-        * @param {string} url
-        * @param {object} queryParams
-        * @param {string} methodType
-        * @param {bool} showModalError
-        * @return {object} Promise of query
-        */
         function FetchApi(params) {
             let { url, queryParams, methodType = 'GET', showModalError = false } = params;
 
@@ -83,28 +74,28 @@
             "login": "user",
             "password": "secretpassword",
 
-            "parameters":
-            [
-                {
-                    "name": "pagenumber",
-                    "value": "1",
-                    "direction": "input"
-                },
-                {
-                    "name": "pagesize",
-                    "value": "3",
-                    "direction": "input"
-                }
-            ],
-            "fields":
-            [
-                {
-                    "name": "field1"
-                },
-                {
-                    "name": "field2"
-                }
-            ]
+            // "parameters":
+            // [
+            //     {
+            //         "name": "pagenumber",
+            //         "value": "1",
+            //         "direction": "input"
+            //     },
+            //     {
+            //         "name": "pagesize",
+            //         "value": "3",
+            //         "direction": "input"
+            //     }
+            // ],
+            // "fields":
+            // [
+            //     {
+            //         "name": "field1"
+            //     },
+            //     {
+            //         "name": "field2"
+            //     }
+            // ]
         }
     </script>
 
@@ -128,11 +119,13 @@
         var jsonCnt = document.getElementById('json');
         jsonCnt.innerText = JSON.stringify(json);
 
-        var url = "http://localhost:8080/api/RR.ReturnRequestListGet";
+        var url = "http://localhost:8080/api/API.Images";
         var urlCnt = document.getElementById('url');
-        urlCnt.value = JSON.stringify(url);
+        urlCnt.value = url;
 
         document.getElementById("run").onclick = function () {
+            var url = urlCnt.value;
+            var json = JSON.parse(jsonCnt.value || "{}");
             FetchApi({ url: url, queryParams: json, methodType: 'POST' })
                 .then(x => {
                     var resultCnt = document.getElementById('result');
